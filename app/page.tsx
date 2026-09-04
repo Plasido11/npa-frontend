@@ -1,5 +1,6 @@
 // src/app/page.tsx
 import { supabase } from '@/lib/supabase';
+import Search from '@/components/Search';
 
 // This function runs on the server during the build process
 async function getConditions() {
@@ -22,6 +23,9 @@ export default async function Home() {
   return (
     <main className="p-8">
       <h1 className="text-3xl font-bold mb-6">NPA Treatment Database</h1>
+	  {/* Insert the new Search Component here */}
+      <Search />
+	  <h2 className="text-2xl font-semibold mb-4">All Published Conditions</h2>
       <div className="grid gap-4">
         {conditions?.map((condition) => (
           <div key={condition.id} className="p-4 border rounded shadow">
