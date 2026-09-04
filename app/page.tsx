@@ -1,6 +1,7 @@
 // src/app/page.tsx
 import { supabase } from '@/lib/supabase';
 import Search from '@/components/Search';
+import TreatmentMatrix from '@/components/TreatmentMatrix';
 
 // This function runs on the server during the build process
 async function getConditions() {
@@ -25,6 +26,7 @@ export default async function Home() {
       <h1 className="text-3xl font-bold mb-6">NPA Treatment Database</h1>
 	  {/* Insert the new Search Component here */}
       <Search />
+	  <TreatmentMatrix/>
 	  <h2 className="text-2xl font-semibold mb-4">All Published Conditions</h2>
       <div className="grid gap-4">
         {conditions?.map((condition) => (
