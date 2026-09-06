@@ -16,7 +16,7 @@ export default function TreatmentMatrix({ conditionId }: { conditionId: number }
   const [activeSymptom, setActiveSymptom] = useState<string>('All');
   const [symptomData, setSymptomData] = useState<SymptomGroup[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
     async function fetchMatrixData() {
       // Fetch relational data through the junction tables
@@ -67,7 +67,7 @@ export default function TreatmentMatrix({ conditionId }: { conditionId: number }
 
     fetchMatrixData();
   }, [conditionId]);
-
+  
   const handleDownloadPDF = () => {
     // Initialize a new PDF document
     const doc = new jsPDF();
@@ -121,10 +121,10 @@ export default function TreatmentMatrix({ conditionId }: { conditionId: number }
 
   return (
     <div className="mt-8 p-6 bg-white border rounded-lg shadow-sm">
-     <div className="flex justify-between items-center mb-4"> 
+	 <div className="flex justify-between items-center mb-4">	
       <h2 className="text-2xl font-bold mb-4">Treatment Matrix</h2>
-
-       {/* The New PDF Download Button */}
+	  
+	  {/* The New PDF Download Button */}
         <button 
           onClick={handleDownloadPDF}
           className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition"
@@ -150,7 +150,7 @@ export default function TreatmentMatrix({ conditionId }: { conditionId: number }
 
       {/* Filtered Treatment Cards Grouped by Type */}
       <div className="space-y-6">
-        {symptomData.map((group) => {
+        {mockSymptomData.map((group) => {
           // Filter symptoms based on the active selection
           const filteredSymptoms = group.symptoms.filter(
             s => activeSymptom === 'All' || s.name === activeSymptom
