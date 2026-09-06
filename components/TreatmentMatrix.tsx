@@ -179,4 +179,3 @@ export default function TreatmentMatrix({ conditionId }: { conditionId: number }
       </div>
     </div>
   );
-}
