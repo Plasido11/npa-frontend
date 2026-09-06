@@ -24,11 +24,13 @@ export default async function Home() {
   return (
     <main className="p-8">
       <h1 className="text-3xl font-bold mb-6">NPA Treatment Database</h1>
+		
 	  {/* Insert the new Search Component here */}
       <Search />
 		
 	  {/* Fetch the matrix for Stroke (ID 1) */}
 	  <TreatmentMatrix conditionId={1} />
+		
 	  <h2 className="text-2xl font-semibold mb-4">All Published Conditions</h2>
       <div className="grid gap-4">
         {conditions?.map((condition) => (
